@@ -26,6 +26,13 @@ body {
     align-items: center;
 }
 
+
+.slide-wrapper {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+}
+
 .slide-item {
     display: flex;
     padding: 0px 10px;
@@ -53,7 +60,7 @@ body {
 
 .slide-description h3 {
     font-family: 'Koulen', cursive;
-    font-size: 48px;
+    font-size: 3em;
     position: relative;
     top: 25px;
 
@@ -61,7 +68,25 @@ body {
 }
 .slide-description p {
     font-family: 'PT Sans', sans-serif;
-    font-size: 24px;
+    font-size: 1.5rem;
 
 }
 
+.slide-nav-button {
+    color: white;
+    font-size: 2.5em;
+    background: transparent;
+    position: absolute;
+    z-index: 1;
+}
+.slide-nav-previous {
+     left: 10px;
+}
+
+.slide-nav-next {
+    right: 10px;
+}
+
+.slide-controls {
+    margin: 20px auto;
+}
