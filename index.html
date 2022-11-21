@@ -13,11 +13,11 @@
 </head>
 <body>
     <div class="wrapper">
-        <div class="slide-wrapper"> 
-            <button class="slide-nav-button slide-nav-previous"><i class="fa-solid fa-chevron-left"></i></button>
-            <button class="slide-nav-button slide-nav-next"><i class="fa-solid fa-chevron-right"></i></button>
-            <div class="slide-list">
-                <div class="slide-item">
+        <div class="slide-wrapper" data-slide="wrapper"> 
+            <button class="slide-nav-button slide-nav-previous fas fa-chevron-left" data-slide="nav-previous-button"></button>
+            <button class="slide-nav-button slide-nav-next fas fa-chevron-right" data-slide="nav-next-button"></button>
+            <div class="slide-list" data-slide="list">
+                <div class="slide-item" data-slide="item" data-slide="index(0)">
                     <div class="slide-content">
                         <img class="slide-image" src="./assets/img/assassinscreed.jpg" alt="Assassin's Creed"/>
                         <div class="slide-description">
@@ -25,7 +25,8 @@
                             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
                         </div>
                     </div>
-                <div class="slide-item">
+                </div>
+                <div class="slide-item" data-slide="item" data-slide="index(1)">
                     <div class="slide-content">
                         <img class="slide-image" src="./assets/img/fortnite.jpg" alt="Fortnite"/>
                         <div class="slide-description">
@@ -34,7 +35,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="slide-item">
+                <div class="slide-item" data-slide="item" data-slide="index(2)">
                     <div class="slide-content">
                         <img class="slide-image" src="./assets/img/freefire.jpg" alt="FreeFire"/>
                         <div class="slide-description">
@@ -43,7 +44,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="slide-item">
+                <div class="slide-item" data-slide="item" data-slide="index(3)">
                     <div class="slide-content">
                         <img class="slide-image" src="./assets/img/gta-v.jpg" alt="gta-v"/>
                         <div class="slide-description">
@@ -52,7 +53,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="slide-item">
+                <div class="slide-item" data-slide="item" data-slide="index(4)">
                     <div class="slide-content">
                         <img class="slide-image" src="./assets/img/halo5.jpg" alt="Halo5"/>
                         <div class="slide-description">
@@ -61,7 +62,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="slide-item">
+                <div class="slide-item" data-slide="item" data-slide="index(5)">
                     <div class="slide-content">
                         <img class="slide-image" src="./assets/img/league-of-legends.jpg" alt="league-of-legends"/>
                         <div class="slide-description">
@@ -70,7 +71,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="slide-item">
+                <div class="slide-item" data-slide="item" data-slide="index(6)">
                     <div class="slide-content">
                         <img class="slide-image" src="./assets/img/red-dead-redemption-2.jpg" alt="red-dead-redemption-2"/>
                         <div class="slide-description">
@@ -79,7 +80,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="slide-item">
+                <div class="slide-item" data-slide="item" data-slide="index(7)">
                     <div class="slide-content">
                         <img class="slide-image" src="./assets/img/zelda.jpg" alt="Zelda"/>
                         <div class="slide-description">
@@ -89,17 +90,18 @@
                     </div>
                 </div>
             </div>
-            <div class="slide-controls">            
-                <button class="slide-control-button fas fa-circle active"></button>
-                <button class="slide-control-button fas fa-circle"></button>
-                <button class="slide-control-button fas fa-circle"></button>
-                <button class="slide-control-button fas fa-circle"></button>
-                <button class="slide-control-button fas fa-circle"></button>
-                <button class="slide-control-button fas fa-circle"></button>
-                <button class="slide-control-button fas fa-circle"></button>
-                <button class="slide-control-button fas fa-circle"></button>
+            <div class="slide-controls" data-slide="controls-wrapper">            
+                <button class="slide-control-button fas fa-circle active" data-slide="control-button"></button>
+                <button class="slide-control-button fas fa-circle" data-slide="control-button"></button>
+                <button class="slide-control-button fas fa-circle" data-slide="control-button"></button>
+                <button class="slide-control-button fas fa-circle" data-slide="control-button"></button>
+                <button class="slide-control-button fas fa-circle" data-slide="control-button"></button>
+                <button class="slide-control-button fas fa-circle" data-slide="control-button"></button>
+                <button class="slide-control-button fas fa-circle" data-slide="control-button"></button>
+                <button class="slide-control-button fas fa-circle" data-slide="control-button"></button>
             </div>                   
         </div>
     </div>
+    <script src="assets/js/slides.js"></script>
 </body>
 </html>

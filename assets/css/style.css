@@ -35,24 +35,30 @@ body {
 }
 
 
-.slide-item {
-    cursor: grab;
+.slide-list {
     display: flex;
-    padding: 0px 10px;
+}
+
+.slide-item {
+    border-radius: 10px;
+    cursor: grab;
+    flex-shrink: 0;
+    padding: 0px 20px;
     width: 90vw;
 
 }
 
 .slide-content {
     border: 1px solid white;
-    position: relative;
     border-radius: 10px;
-    box-shadow: #000 0px 12px 10px;
+    box-shadow: #070707 0px 12px 10px;
+    position: relative;
+
 
 }
 .slide-image {
-    width: 90vw;
     border-radius: 10px;
+    width: 100%;
 }
 .slide-description {
     background: linear-gradient(transparent,#000);
@@ -96,10 +102,7 @@ body {
 }
 
 .slide-controls {
-    position: absolute;
     margin: 20px auto;
-    left: 40%;
-    right: auto;
 }
 
 .slide-control-button {
