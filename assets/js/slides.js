@@ -15,10 +15,41 @@ const state = {
     movement: 0,
     currentSlideIndex: 0
 }
-function translateSlide(position){
+
+function translateSlide({ position }){
     state.savedPosition = position
     slideList.style.transform = `translateX(${position}px)`
 }
+
+    function getCenterPositio({ index }) {
+    const slideItem = slideItems[index]
+    const slideWidth = slideItem.clientWidth
+    const windowWidth = document.body.clientWidth
+    const margin = (windowWidth - slideWidth) / 2 
+    const position = margin - (index * slideWidth)
+    return position
+    }
+
+function setVisibleSlide({ index }) {
+    
+    const position = getCenterPositio({ index })
+    
+    state.currentSlideIndex = index
+    translateSlide({ position})
+}
+
+function nextSlide() {
+    setVisibleSlide({ index: state.currentSlideIndex + 1})
+}
+
+function previousSlide(){
+    setVisibleSlide({ index: state.currentSlideIndex - 1})
+}
+
+function createControlButton() {
+    
+}
+
 function onMousedown (event, index) {
     const slideItem = event.currentTarget
     state.startingPoint = event.clientX
@@ -32,7 +63,7 @@ function onMousedown (event, index) {
 function onMouseMove(event) {
     state.movement = event.clientX - state.startingPoint
     const position = event.clientX - state.currentPoint
-    translateSlide(position)
+    translateSlide({ position })
     state.savedPosition = position
 }
 function onMouseUp(event) {
@@ -40,16 +71,13 @@ function onMouseUp(event) {
     const slideWidth = slideItem.clientWidth
     console.log(slideWidth)
     if(state.movement < -150) {
-        const position = (state.currentSlideIndex + 1) * slideWidth
-        translateSlide(-position)
+        nextSlide()
     }
     else if(state.movement > 150) {
-        const position = (state.currentSlideIndex - 1) * slideWidth
-        translateSlide(-position)
+        previousSlide()
     }
     else {
-        const position = (state.currentSlideIndex) * slideWidth
-        translateSlide(-position)
+        setVisibleSlide({ index: state.currentSlideIndex })
     }
     slideItem.removeEventListener('mousemove', onMouseMove)
     //console.log(event)
@@ -64,3 +92,8 @@ slideItems.forEach(function(slideItem, index) {
     })
     slideItem.addEventListener('mouseup', onMouseUp) 
 }) 
+
+navNextButton.addEventListener('click', nextSlide)
+navPreviousButton.addEventListener('click', previousSlide)
+
+setVisibleSlide({index: 0 })
