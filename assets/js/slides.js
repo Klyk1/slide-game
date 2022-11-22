@@ -14,13 +14,11 @@ const state = {
     currentPoint: 0,
     movement: 0,
     currentSlideIndex: 0
-
 }
 function translateSlide(position){
     state.savedPosition = position
     slideList.style.transform = `translateX(${position}px)`
 }
- 
 function onMousedown (event, index) {
     const slideItem = event.currentTarget
     state.startingPoint = event.clientX
@@ -31,15 +29,12 @@ function onMousedown (event, index) {
     //console.log('ponto de partida', startingPoint)
     //console.log('apertei o botão do mouse')
 }
-
 function onMouseMove(event) {
     state.movement = event.clientX - state.startingPoint
     const position = event.clientX - state.currentPoint
     translateSlide(position)
     state.savedPosition = position
 }
-
-
 function onMouseUp(event) {
     const slideItem = event.currentTarget
     const slideWidth = slideItem.clientWidth
@@ -51,29 +46,21 @@ function onMouseUp(event) {
     else if(state.movement > 150) {
         const position = (state.currentSlideIndex - 1) * slideWidth
         translateSlide(-position)
-
     }
     else {
         const position = (state.currentSlideIndex) * slideWidth
         translateSlide(-position)
     }
-
-
-
     slideItem.removeEventListener('mousemove', onMouseMove)
     //console.log(event)
     //console.log('soltei o botão do mouse')
 }
-
 slideItems.forEach(function(slideItem, index) {
     slideItem.addEventListener('dragstart', function(event) {
         event.preventDefault()
     })
-
-
     slideItem.addEventListener('mousedown', function(event){
         onMousedown(event, index)
     })
-    slideItem.addEventListener('mouseup', onMouseUp)
-    
+    slideItem.addEventListener('mouseup', onMouseUp) 
 })
