@@ -63,4 +63,4 @@ slideItems.forEach(function(slideItem, index) {
         onMousedown(event, index)
     })
     slideItem.addEventListener('mouseup', onMouseUp) 
-})
+}) 
