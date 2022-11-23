@@ -35,15 +35,15 @@ function setVisibleSlide({ index }) {
     const position = getCenterPositio({ index })
     
     state.currentSlideIndex = index
-    translateSlide({ position})
+    translateSlide({ position })
 }
 
 function nextSlide() {
-    setVisibleSlide({ index: state.currentSlideIndex + 1})
+    setVisibleSlide({ index: state.currentSlideIndex + 1 })
 }
 
 function previousSlide(){
-    setVisibleSlide({ index: state.currentSlideIndex - 1})
+    setVisibleSlide({ index: state.currentSlideIndex - 1 })
 }
 
 function createControlButton() {
@@ -96,4 +96,4 @@ slideItems.forEach(function(slideItem, index) {
 navNextButton.addEventListener('click', nextSlide)
 navPreviousButton.addEventListener('click', previousSlide)
 
-setVisibleSlide({index: 0 })
+setVisibleSlide({ index: 0 })
