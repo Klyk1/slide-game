@@ -5,7 +5,7 @@ const slideList = document.querySelector('[data-slide="list"]')
 const navPreviousButton = document.querySelector('[data-slide="nav-previous-button"]')
 const navNextButton = document.querySelector('[data-slide="nav-next-button"]')
 const controlsWrapper = document.querySelector('[data-slide="controls-wrapper"]')
-const slideItems =document.querySelectorAll('[data-slide="item"]')
+let slideItems = document.querySelectorAll('[data-slide="item"]')
 let controlButtons
 
 const state = {
@@ -21,7 +21,7 @@ function translateSlide({ position }){
     slideList.style.transform = `translateX(${position}px)`
 }
 
-    function getCenterPosition({ index }) {
+function getCenterPosition({ index }) {
     const slideItem = slideItems[index]
     const slideWidth = slideItem.clientWidth
     const windowWidth = document.body.clientWidth
@@ -33,8 +33,9 @@ function translateSlide({ position }){
 function setVisibleSlide({ index }) {   
     const position = getCenterPosition({ index })   
     state.currentSlideIndex = index
+    slideList.style.transition = 'transform .5s'
     activeControlButton({ index })
-    translateSlide({ position })
+    translateSlide({ position: position })
 }
 
 function nextSlide() {
@@ -62,15 +63,15 @@ function activeControlButton({ index }) {
     controlButtons.forEach(function(controlButtonItem) {
         controlButtonItem.classList.remove('active')
     })
-
     controlButton.classList.add('active')
 }
 
-function onMousedown (event, index) {
+function onMousedown(event, index) {
     const slideItem = event.currentTarget
     state.startingPoint = event.clientX
     state.currentPoint = event.clientX - state.savedPosition
     state.currentSlideIndex = index
+    slideList.style.transition = 'none'
     slideItem.addEventListener('mousemove', onMouseMove)
 }
 
@@ -83,7 +84,8 @@ function onMouseMove(event) {
 
 function onMouseUp(event) {
     const slideItem = event.currentTarget
-    //const slideWidth = slideItem.clientWidth
+    const slideWidth = slideItem.clientWidth
+    console.log(slideWidth)
     if(state.movement < -150) {
         nextSlide()
     }
@@ -104,9 +106,8 @@ function onControlButtonClick(index) {
 
 function setListeners() {
     controlButtons = document.querySelectorAll('[data-slide="control-button"]')
-
     controlButtons.forEach(function(controlButton, index){
-        controlButton.addEventListener('click', function(event){
+       controlButton.addEventListener('click', function(event){
             onControlButtonClick(index)
         })
     })
